@@ -1,0 +1,44 @@
+
+{% extends 'home/base.html'%}
+
+{% block body %}
+
+<div class="owl-carousel owl-theme" id="slider">
+    {% for i in "aaaaaaaaaaa"%}
+    <div class="item"><img src="/static/images/s1.jpg"></div>
+    <div class="item"><img src="/static/images/s2.jpg"></div>
+
+    {% endfor%}
+
+</div>
+
+<div class="owl-carousel owl-theme" id="categery">
+    {% for i in "aaaaaaaaaaa"%}
+    <div class="item"><img src="/static/images/s1.jpg"></div>
+    <div class="item"><img src="/static/images/s2.jpg"></div>
+
+    {% endfor%}
+
+</div>
+
+<div class="container">
+    <h2>Basic Card</h2>
+    <div class="row">
+        {% for pro in products%}
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header"><img src="{{pro.image.url}}" width="100%"></div>
+                <div class="card-body">
+                    <h1>{{pro.name}}</h1>
+                    <h4>{{pro.price}}</h4>
+                    <a href="">order</a>
+                </div>
+            </div>
+        </div>
+        {% endfor%}
+    </div>
+</div>
+
+{% endblock%}
+
+{% block title %} Meri dukaan {% endblock%}

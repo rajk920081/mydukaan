@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="icon" href="/static/images/favicon.png">
+    <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/static/css/owl.theme.default.min.css">
+
+
+
+    <title>{% block title %}{% endblock%}</title>
+    <style>
+        .card img{
+        height:140px;}
+
+        .bg-pink{
+            background: #ff934b;
+            padding: 16px;
+            font-size: 18px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<header class="bg-pink">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"><img src="/static/images/logo.png"></div>
+            <div class="col-md-8">search box</div>
+            <div class="col-md-2"><a href="#" class="btn btn-primary">login</a></div>
+        </div>
+    </div>
+</header>
+{% block body%}
+{% endblock%}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/static/js/owl.carousel.min.js"></script>
+
+<script>
+    $('#slider').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:1
+        },
+        1000:{
+            items:1
+        }
+    }
+})
+
+$('#categery').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:1
+        },
+        1000:{
+            items:5
+        }
+    }
+})
+
+</script>
+
+
+</body>
+</html>

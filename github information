@@ -1,0 +1,34 @@
+github:
+
+github account
+    username:
+    email -verify
+    password:
+
+git download softwere - install
+
+gitbase
+gitGUI
+
+linux
+echo xyz.py >> "ddd"
+copy con xyz.py
+sdfsd
+cont+z
+
+$ git config --global user.name "rajk920081"
+$ git config --global user.email johndoe@example.com
+git init - first command init
+git add xyz.py
+
+git add .
+git commit -m "kuch change"
+
+git remote add origin  http://github.com/mydukaan/
+git push -u  origin master
+
+git status- apne status ko dekhne ke liye koi bhi change ke liye
+completed 100%
+github brower files uploaded mil jayegi
+
+

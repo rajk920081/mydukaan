@@ -11,6 +11,10 @@ class MasterProCat(models.Model):
     update_time =models.DateTimeField(auto_now=True)
     slug = models.SlugField(unique=True, null=True, blank=True)
 
+    def __str__(self):
+        return self.name
+
+
 class MasterProduct(models.Model):
     pro_id =models.AutoField(auto_created=True, primary_key=True, serialize=False)
     cat_id =models.ForeignKey(MasterProCat, on_delete=models.CASCADE)
@@ -24,6 +28,9 @@ class MasterProduct(models.Model):
     datetime = models.DateTimeField(auto_now_add=True)
     update_time = models.DateTimeField(auto_now=True)
     status = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
 
 
 
