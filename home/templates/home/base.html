@@ -36,12 +36,16 @@
         </div>
     </div>
 </header>
+
 {% block body%}
 {% endblock%}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="/static/js/owl.carousel.min.js"></script>
+
+{% block js%}
+{% endblock%}
 <script>
     $('#slider').owlCarousel({
     loop:true,
@@ -72,7 +76,7 @@ $('#categery').owlCarousel({
             items:1
         },
         1000:{
-            items:5
+            items:9
         }
     }
 })

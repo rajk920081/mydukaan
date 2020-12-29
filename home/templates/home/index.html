@@ -35,12 +35,11 @@
 
 
 <div class="owl-carousel owl-theme" id="categery">
-    {% for i in "aaaaaaaaaaa"%}
-    <div class="item"><img src="/static/images/s1.jpg">
-    <div class="">Cat {{forloop.counter}}</div>
+    {% for cat in procat%}
+    <div class="item">
+        <img src="{{cat.pic.url}}">
+        <div class="">{{cat.name}} {{forloop.counter}}</div>
     </div>
-    <div class="item"><img src="/static/images/s2.jpg"></div>
-
     {% endfor%}
 
 </div>

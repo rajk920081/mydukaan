@@ -1,0 +1,35 @@
+
+ajax:
+ jquery- javascript ki
+ link- online / offline --cdn
+
+ <div class="mydata" >abcd</div>
+$(".mydata").event();
+
+var a =getElementByClass("mydata");
+a =$(".mydata").html();
+
+
+click()
+dbclick
+hover()
+<div id="res">ff</div>
+action:
+
+
+ajax-database(server-side-data)
+id=1
+$.ajax(
+    url:"path of file",
+    type:"",# get, post,
+    data:{'id':id},
+    success:function(abcd){
+        v =$("#res").html(abcd)
+    }
+)
+
+ajax call
+function call
+event
+attribute
+selector
