@@ -4,27 +4,53 @@
     about us
 <br>
 <br>
-    <input type="text" id="mobile" class="mymobile" name="mmmm" data-name="myname"]>
-    <button id="gslider" class="btn btn-danger" onclick="abcd()">Call</button>
+    <form method="post">
+        {% csrf_token %}
 
-
-    <div class="res">here message</div>
+    <input type="text" id="ib1" class="mymobile" >
+    <div class="res">.....</div>
+        </form>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        $("#gslider").click(function(){
-        //v =$(".mymobile").val();
-            v =$("input[name='mmmm']").val();
-          $(".res").html(v);
+    $(document).ready(function(e){
+        abcd();
+
+      $("#ib1").keyup(function(){
+        vv = $("#ib1").val()
+        console.log(vv);
+        abcd(vv);
+      })
 
 
 
-        });
 
-        function abcd(){
-        alert('myfunction called');
+    });
+
+
+        function abcd(vv=""){
+
+            mytoken =$("input[name=csrfmiddlewaretoken]").val();
+            $.ajax({
+                url:"/getProduct/",
+                type:"post",
+                data:{'vv':vv,'csrfmiddlewaretoken':mytoken},
+                success:function(data){
+                $(".res").html(data);
+                }
+
+
+            });
+
+
+
         }
 
+
+
+
+
     </script>
+
 
 
 {%endblock %}
