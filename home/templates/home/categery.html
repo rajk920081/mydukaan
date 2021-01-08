@@ -1,7 +1,7 @@
 <div class="owl-carousel owl-theme" id="categery">
     {% for cat in categery %}
     <div class="item">
-        <img src="{{cat.pic.url}}">
+        <img src="{{cat.pic.url}}" class="cat-img">
         <div class="">{{cat.name}} {{forloop.counter}}</div>
     </div>
     {% endfor%}
