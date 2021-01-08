@@ -4,64 +4,57 @@
 {% block body %}
 
 
-<div id="demo" class="carousel slide" data-ride="carousel">
-
-  <!-- Indicators -->
-  <ul class="carousel-indicators">
-      {% for v in sliders%}
-    <li data-target="#demo" data-slide-to="{{forloop.counter}}" class="{% if v.position in 'f' %} active{% endif%}"></li>
-
-      {% endfor%}
-  </ul>
-
-  <!-- The slideshow -->
-  <div class="carousel-inner">
-      {% for v in sliders%}
-    <div class="carousel-item {% if v.position in 'f' %} active{% endif%}">
-      <img src="{{v.image.url}}" width="100%" height="500">
-    </div>
-      {% endfor%}
-
-  </div>
-
-  <!-- Left and right controls -->
-  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </a>
-  <a class="carousel-control-next" href="#demo" data-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </a>
-</div>
-
-
-<div class="owl-carousel owl-theme" id="categery">
-    {% for cat in procat%}
-    <div class="item">
-        <img src="{{cat.pic.url}}">
-        <div class="">{{cat.name}} {{forloop.counter}}</div>
-    </div>
-    {% endfor%}
-
+<div id="sliderlist"></div>
+<div class="container">
+<div id="categerylist"></div>
 </div>
 
 <div class="container">
     <h2>Basic Card</h2>
-    <div class="row">
-        {% for pro in products%}
-        <div class="col-md-3">
-            <div class="card">
-                <div class="card-header"><img src="{{pro.image.url}}" width="100%"></div>
-                <div class="card-body">
-                    <h1>{{pro.name}}</h1>
-                    <h4>{{pro.price}}</h4>
-                    <a href="">order</a>
-                </div>
-            </div>
-        </div>
-        {% endfor%}
+    <div class="product_list">
+
     </div>
+
+
 </div>
+
 
 {% endblock%}
 
+{% block js%}
+<script>
+function loadProduct(){
+        $.ajax({
+            url:"/getProduct/",
+            success:function(data){
+                $(".product_list").html(data);
+            }
+        });
+}
+
+
+function loadSlider(){
+        $.ajax({
+            url:"/getSlider/",
+            success:function(data){
+                $("#sliderlist").html(data);
+            }
+        });
+}
+
+function loadCategery(){
+        $.ajax({
+            url:"/getCategery/",
+            success:function(data){
+                $("#categerylist").html(data);
+            }
+        });
+}
+loadCategery();
+loadProduct();
+loadSlider();
+
+
+</script>
+{% endblock%}
 {% block title %} Meri dukaan {% endblock%}

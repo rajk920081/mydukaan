@@ -1,16 +1,14 @@
-all products here
 
-
-{{counter}}
 <div class="row">
         {% for pro in products%}
         <div class="col-md-3">
             <div class="card">
                 <div class="card-header"><img src="{{pro.image.url}}" width="100%"></div>
                 <div class="card-body">
-                    <h1>{{pro.name}}</h1>
+                    <h1>{{pro.name}} </h1>
                     <h4>{{pro.price}}</h4>
-                    <a href="">order</a>
+                    <h4>{{pro.slug}}</h4>
+                    <a href="{% url 'product_details' pro.slug %}"> {{pro.pk}}Details</a>
                 </div>
             </div>
         </div>

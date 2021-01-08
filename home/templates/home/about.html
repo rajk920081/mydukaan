@@ -14,19 +14,12 @@
     <script>
     $(document).ready(function(e){
         abcd();
-
       $("#ib1").keyup(function(){
         vv = $("#ib1").val()
         console.log(vv);
         abcd(vv);
-      })
-
-
-
-
+      });
     });
-
-
         function abcd(vv=""){
 
             mytoken =$("input[name=csrfmiddlewaretoken]").val();
@@ -52,6 +45,20 @@
     </script>
 
 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/
+libs/jquery/1.3.0/jquery.min.js"></script>
+<script type="text/javascript">
+var auto_refresh = setInterval(
+function ()
+{
+$('#load_tweets').load('/getProduct/').fadeIn("slow");
+}, 1000);
 
+
+
+
+
+</script>
+<!--<div id="load_tweets"> </div>-->
 {%endblock %}
 
