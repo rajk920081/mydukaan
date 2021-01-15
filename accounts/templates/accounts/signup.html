@@ -22,11 +22,7 @@
                 <div class="form-group" id="otpbox" >
                     <input type="number" placeholder="Enter Otp"
                            class="form-control" id="otp" name="otp" autocomplete="off">
-
-
                 </div>
-
-
 
                 <div class="form-group">
                     <button type="button" id="saveuser"
@@ -45,6 +41,7 @@
 
 {% block js%}
 <script>
+
 $("#otpbox").css("display", "none");
     function emailMatch(myemail){
         $.ajax({
@@ -58,13 +55,7 @@ $("#otpbox").css("display", "none");
             }else{
              $("#msg").html("<div class='text-success pt-2'>Email available</div>");
              $("#otpbox").css("display", "block");
-
-
             }
-
-
-
-
             }
 
         })
@@ -72,13 +63,19 @@ $("#otpbox").css("display", "none");
     }
 
     $("#email").keyup(function(){
+    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
         email =$("#email").val();
         if (email==""){
             $("#email").css("border", "solid 1px red");
             $("#email").focus();
             $("#msg").html("<div class='text-danger pt-2'>Enter Email</div>"); }
+
+        else if(re.test(email)==false){
+            $("#msg").html("<div class='text-danger pt-2'>Please Enter Valid Email Id</div>");
+        }
         else{
-        console.log(email);
+
         emailMatch(email);
 
 
