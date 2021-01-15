@@ -33,8 +33,6 @@ class MasterProduct(models.Model):
         return self.name
 
 
-
-
 from .extra_fun import unique_slug_generator
 from django.db.models.signals import pre_save
 
@@ -53,4 +51,4 @@ pre_save.connect(make_slug_main, sender=MasterProCat)
 
 
 
-
+#inspectdb

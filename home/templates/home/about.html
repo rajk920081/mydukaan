@@ -1,64 +1,17 @@
 {% extends 'home/base.html'%}
 
 {% block body %}
-    about us
-<br>
-<br>
-    <form method="post">
-        {% csrf_token %}
-
-    <input type="text" id="ib1" class="mymobile" >
-    <div class="res">.....</div>
-        </form>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-    $(document).ready(function(e){
-        abcd();
-      $("#ib1").keyup(function(){
-        vv = $("#ib1").val()
-        console.log(vv);
-        abcd(vv);
-      });
-    });
-        function abcd(vv=""){
-
-            mytoken =$("input[name=csrfmiddlewaretoken]").val();
-            $.ajax({
-                url:"/getProduct/",
-                type:"post",
-                data:{'vv':vv,'csrfmiddlewaretoken':mytoken},
-                success:function(data){
-                $(".res").html(data);
-                }
-
-
-            });
+<div class="container">
+    <br>
+    <h1>The standard Lorem Ipsum passage, used since the 1500s</h1>
+    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    </p>
+</div>
 
 
 
-        }
-
-
-
-
-
-    </script>
-
-
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/
-libs/jquery/1.3.0/jquery.min.js"></script>
-<script type="text/javascript">
-var auto_refresh = setInterval(
-function ()
-{
-$('#load_tweets').load('/getProduct/').fadeIn("slow");
-}, 1000);
-
-
-
-
-
-</script>
-<!--<div id="load_tweets"> </div>-->
 {%endblock %}
+{% block js%}
+
+{% endblock%}
 

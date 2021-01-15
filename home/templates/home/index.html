@@ -3,7 +3,7 @@
 
 {% block body %}
 
-
+{% include 'home/navbar.html'%}
 <div id="sliderlist"></div>
 <div class="container">
 <div id="categerylist"></div>
@@ -11,9 +11,10 @@
 
 <div class="container">
     <h2>All Products</h2>
+    <input type="search" name="proSearch" class="form-control" id="pro_key">
     <div class="product_list">
-
     </div>
+
 
 
 </div>
@@ -23,14 +24,30 @@
 
 {% block js%}
 <script>
-function loadProduct(){
+function loadProduct(skey){
+        console.log("func called"+skey);
         $.ajax({
             url:"/getProduct/",
+            method:"get",
+            data:{'mykey':skey},
             success:function(data){
                 $(".product_list").html(data);
             }
         });
 }
+
+$("#pro_key").keyup(function(){
+
+          skey =$("#pro_key").val();
+          if (skey!=""){
+                 loadProduct(skey);
+          }
+          else{
+          loadProduct();
+          }
+
+
+});
 
 
 function loadSlider(){
@@ -53,6 +70,7 @@ function loadCategery(){
 loadCategery();
 loadProduct();
 loadSlider();
+
 
 
 </script>

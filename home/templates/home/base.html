@@ -10,9 +10,7 @@
     <link rel="icon" href="/static/images/favicon.png">
     <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
     <link rel="stylesheet" href="/static/css/owl.theme.default.min.css">
-
-
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>{% block title %}{% endblock%}</title>
     <style>
         .card img{
@@ -37,19 +35,17 @@
         .box{
         margin:10px 0px;
         }
-
-
         #categerylist img{ border: solid 2px #d8d8d8;cursor: pointer;}
 
         .cat-img:hover .cat-img {border: solid 7px red;}
-
-
-        .box:hover
-
-        {cursor: pointer;
-
+        .box:hover{cursor: pointer;
             box-shadow: 1px 1px 11px 0px #4CAF50;
             border: solid 1px #39a226;
+        }
+        #sliderlist{
+        width: 100%;
+        height: 350px;
+        overflow: hidden;
         }
     </style>
 </head>
@@ -73,28 +69,16 @@
 
 {% block js%}
 {% endblock%}
+
 <script>
-    $('#slider').owlCarousel({
-    loop:true,
-    margin:10,
-    nav:true,
-    responsive:{
-        0:{
-            items:1
-        },
-        600:{
-            items:1
-        },
-        1000:{
-            items:1
-        }
-    }
-})
+    function loadMenu(){
+        $.ajax({
+            url:"/getMenu/",
+            success:function(data){
+                $("#menulist").html(data);
+            }
+        });
+}
+loadMenu();
 
-
-
-
-
-
-</body>
-</html>
+</script>

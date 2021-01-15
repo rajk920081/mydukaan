@@ -1,0 +1,91 @@
+{% extends 'home/base.html'%}
+
+{% block body %}
+
+
+<div class="container" >
+
+
+    <div class="row m-4 p-4">
+        <div class="col-md-4"></div>
+        <div class="col-md-6">
+
+            <form method="post" action="{% url 'match'%}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" placeholder="Enter Email"
+                           class="form-control" id="email" name="email" autocomplete="off">
+
+                    <div id="msg"></div>
+                </div>
+
+                <div class="form-group" id="otpbox" >
+                    <input type="number" placeholder="Enter Otp"
+                           class="form-control" id="otp" name="otp" autocomplete="off">
+
+
+                </div>
+
+
+
+                <div class="form-group">
+                    <button type="button" id="saveuser"
+                            class="btn btn-success" >Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+{% endblock%}
+
+{% block js%}
+<script>
+$("#otpbox").css("display", "none");
+    function emailMatch(myemail){
+        $.ajax({
+            url:"{% url 'match'%}",
+            method:"get",
+            data: { 'ee': myemail} ,
+            success:function(data){
+            $("#msg").html("")
+            if(data.status=="error"){
+                 $("#msg").html("<div class='text-danger pt-2'>Email alerdy exist</div>");
+            }else{
+             $("#msg").html("<div class='text-success pt-2'>Email available</div>");
+             $("#otpbox").css("display", "block");
+
+
+            }
+
+
+
+
+            }
+
+        })
+
+    }
+
+    $("#email").keyup(function(){
+        email =$("#email").val();
+        if (email==""){
+            $("#email").css("border", "solid 1px red");
+            $("#email").focus();
+            $("#msg").html("<div class='text-danger pt-2'>Enter Email</div>"); }
+        else{
+        console.log(email);
+        emailMatch(email);
+
+
+        }
+
+
+    });
+
+    </script>
+{% endblock%}
