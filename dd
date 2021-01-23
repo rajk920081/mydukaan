@@ -1,0 +1,2 @@
+
+Models.objecrts.all().group_by('name','salary')

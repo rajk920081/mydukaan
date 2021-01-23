@@ -2,7 +2,7 @@
 {% extends 'home/base.html'%}
 
 {% block body %}
-
+{% include 'home/header.html'%}
 {% include 'home/navbar.html'%}
 <div id="sliderlist"></div>
 <div class="container">
@@ -74,5 +74,7 @@ loadSlider();
 
 
 </script>
+{% include 'home/footer.html'%}
 {% endblock%}
 {% block title %} Meri dukaan {% endblock%}
+

@@ -37,9 +37,9 @@ from .extra_fun import unique_slug_generator
 from django.db.models.signals import pre_save
 
 def make_slug(sender, instance, *args, **kwargs):
-   if not instance.slug:
+    if not instance.slug:
        instance.slug = unique_slug_generator(instance)
-
+    print('send mail user')
 
 pre_save.connect(make_slug, sender=MasterProduct)
 

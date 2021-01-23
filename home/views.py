@@ -3,6 +3,8 @@ from django.shortcuts import render
 # Create your views here.
 from products.models import MasterProduct,MasterProCat
 from .models import MasterSlider
+from django.contrib.auth.decorators import login_required
+
 
 def homepage(request):
     return render(request,'home/index.html')
@@ -43,7 +45,7 @@ def getMenu(request):
     return render(request, 'home/menu.html', {'categery': categery,
                                                   })
 
-
+@login_required(login_url='login')
 def product_details(request,link=None):
     # name =MasterProduct.objects.get() #ORM
     # onep = MasterProduct.objects.filter(price=500) | MasterProduct.objects.filter(price=250)
